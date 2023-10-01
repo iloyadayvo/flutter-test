@@ -15,6 +15,10 @@ dependencies:
   english_words: ^4.0.0
   provider: ^6.0.0
 
+  # To add assets to your application, add an assets section, like this:
+
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -23,3 +27,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - lib/assets/birthday.jpg
+  
