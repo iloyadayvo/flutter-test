@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 
 
-class test extends StatelessWidget {
-  const test({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
   @override
   Widget build(BuildContext context){
     return  Scaffold(
@@ -25,9 +25,7 @@ class test extends StatelessWidget {
             onPressed: null,
              icon:const Icon(Icons.notifications, 
              color:Colors.purple,)
-            
-             
-             )
+          )
          
         ],
       ),
@@ -56,9 +54,6 @@ class test extends StatelessWidget {
               hoverColor: Colors.deepPurple,
               onPressed: null,
                icon:const Icon(Icons.search,)
-              
-              
-               
                )
                     
                    ],
