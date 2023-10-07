@@ -1,8 +1,6 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:namer_app/widget_test.dart';
-
 import 'home_screen.dart';
 
 void main() {

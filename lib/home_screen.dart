@@ -1,6 +1,8 @@
  import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:namer_app/celebration.dart';
+import 'package:namer_app/popup_celebration.dart';
 
 
 
@@ -64,20 +66,15 @@ class HomeScreen extends StatelessWidget {
              SizedBox(height: 20),
              SizedBox(
                width: double.infinity,
-               child: SingleChildScrollView(
+               height:200,
+               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
-                 child: Row(
-                   children: [
-                     Review(),
-                  SizedBox(
-                    width: 20,
-                  ),
-                Review(),
-                        SizedBox(
-                    width: 20,
-                  ),
-                 Review() ],
-                 ),
+               
+                itemCount: 6,
+                separatorBuilder: (context, _) => SizedBox(width: 12),
+                itemBuilder:(context, index) => popup_celeb(
+                name: "Victor",
+              ),
                ),
              ),
             
@@ -96,23 +93,18 @@ class HomeScreen extends StatelessWidget {
              SizedBox(
               height: 10,
             ),
-           SingleChildScrollView(scrollDirection: Axis.horizontal,
-             child: Row(
-              children: [
-                  Celebration(),
-                SizedBox(
-                  width: 70,
-                ),
-              Celebration(),
-                  SizedBox(
-                    width: 70,
+           Container(
+            height: 100,
+             child: ListView.separated(
+              scrollDirection: Axis.vertical,
+                itemCount: 6,
+                separatorBuilder: (context, _) => SizedBox(width: 12),
+                itemBuilder:(context, index) => Celebration(
+                  name:"Yuri Ollavier",
+                  date: "27.02.2000",
+                  days_left: "3",
                   ),
-                 Celebration(),
-                  SizedBox(
-                    width: 70,
-                  ),
-                 Celebration()
-                ],
+
              ),
            ),
            Align(
@@ -171,69 +163,7 @@ class HomeScreen extends StatelessWidget {
      
  }
 }
-class  Celebration extends StatelessWidget{
-  const Celebration({super.key});
-  
-  @override
-  Widget build(BuildContext context){
-    return Card(
-                    child: Container(
-                      width: 300,
-                      padding: EdgeInsets.all(8),
-                      decoration:
-                          BoxDecoration(borderRadius: BorderRadius.circular(2)),
-                      child: Column(
-                        children: [
-                          Column(children: [
-                            Text(
-                              "Ola Machiavelli",
-                              style: TextStyle(
-                                  fontSize: 12, fontWeight: FontWeight.normal),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(Icons.cake,color: Colors.purpleAccent,),
-                                 SizedBox(
-                    width: 7,
-                  ),
-                                Text(
-                                  "20.10 2020",
-                                  style: TextStyle(
-                                      fontSize: 12, fontWeight: FontWeight.normal),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 4,
-                            ),
-                            Row(
-                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                    Icons.calendar_month,
-                    color: Colors.pinkAccent,
-                  ),
-                  SizedBox(
-                    width: 7,
-                  ),
-                                Text(
-                                  "30 days left",
-                                  style: TextStyle(
-                                      fontSize: 12, fontWeight: FontWeight.normal),
-                                ),
-                              ],
-                            ),
-                          ]),
-                        ],
-                      ),
-                    ),
-                  );
-  }
-}
+
 class  Review extends StatelessWidget{
   const Review({super.key});
   
@@ -252,69 +182,81 @@ class  Review extends StatelessWidget{
                               sigmaX: 10,
                               sigmaY: 10
                             ),
-                            child: Container(
-                              padding: EdgeInsets.all(8.0),
-                              width: 500,
-                              child: Column(
-                                            children: [
-                               Row(mainAxisAlignment: MainAxisAlignment.end,
-                                 children: [
-                                   IconButton(
-                                    onPressed: null,
-                                   icon: Icon(Icons.edit,
-                                   color: Colors.white,)
-                                   ),
-                                 ],
-                               ),
-                               Row(mainAxisAlignment: MainAxisAlignment.center,
-                                 children: [
-                                   Text("Yayy!!!",
-                                                style: TextStyle(fontWeight: FontWeight.w100,
-                                                fontSize: 32),
-                                                ),
-                                   SizedBox(
-                        width: 10,
-                      ),
-                      Icon(Icons.celebration),
-                     
-                                            
-                                 ],
-                               ),
-                                       Text(
-                    "It is Victors Birthday.",
-                    style: TextStyle(fontWeight: FontWeight.w100, fontSize: 32),
-                  ),
-                  Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      IconButton(
-                        padding: EdgeInsets.all(8),
-                        onPressed: null, 
-                      icon:Icon(Icons.call,color: Colors.black,),
-                      color:Colors.white,),
-                      
-                      IconButton(
-                        padding: EdgeInsets.all(8),
-                        onPressed: null,
-                        icon: Icon(
-                          Icons.message_rounded,
-                          color: Colors.black,
-                        ),
-                        color: Colors.white,
-                      ),
-                      
-                      IconButton(
-                        padding: EdgeInsets.all(8),
-                        onPressed: null,
-                        icon: Icon(
-                          Icons.share,
-                          color: Colors.black,
-                        ),
-                        color: Colors.white,
-                      )
-                    ],
-                  ),     
-                                            ],
-                                   ),
+                            child: Stack(
+                              children:[ 
+                                Container(
+                                  padding: EdgeInsets.all(8.0),
+                                width: 500,
+                                child:Image(image: 
+                                NetworkImage("https://th.bing.com/th/id/R.d58339de61b5d07fd4db988f8e8a7cdd?rik=SfZdJyKhxDm1VQ&pid=ImgRaw&r=0"),
+                                fit: BoxFit.cover,
+                                )
+                                ),
+                                Container(
+                                padding: EdgeInsets.all(8.0),
+                                width: 500,
+                                child: Column(
+                                              children: [
+                                 Row(mainAxisAlignment: MainAxisAlignment.end,
+                                   children: [
+                                     IconButton(
+                                      onPressed: null,
+                                     icon: Icon(Icons.edit,
+                                     color: Colors.white,)
+                                     ),
+                                   ],
+                                 ),
+                                 Row(mainAxisAlignment: MainAxisAlignment.center,
+                                   children: [
+                                     Text("Yayy!!!",
+                                                  style: TextStyle(fontWeight: FontWeight.w100,
+                                                  fontSize: 32),
+                                                  ),
+                                     SizedBox(
+                                                    width: 10,
+                                                  ),
+                                                  Icon(Icons.celebration),
+                                                 
+                                              
+                                   ],
+                                 ),
+                                         Text(
+                                                "It is Victors Birthday.",
+                                                style: TextStyle(fontWeight: FontWeight.w100, fontSize: 32),
+                                              ),
+                                              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                children: [
+                                                  IconButton(
+                                                    padding: EdgeInsets.all(8),
+                                                    onPressed: null, 
+                                                  icon:Icon(Icons.call,color: Colors.black,),
+                                                  color:Colors.white,),
+                                                  
+                                                  IconButton(
+                                                    padding: EdgeInsets.all(8),
+                                                    onPressed: null,
+                                                    icon: Icon(
+                                                      Icons.message_rounded,
+                                                      color: Colors.black,
+                                                    ),
+                                                    color: Colors.white,
+                                                  ),
+                                                  
+                                                  IconButton(
+                                                    padding: EdgeInsets.all(8),
+                                                    onPressed: null,
+                                                    icon: Icon(
+                                                      Icons.share,
+                                                      color: Colors.black,
+                                                    ),
+                                                    color: Colors.white,
+                                                  )
+                                                ],
+                                              ),     
+                                              ],
+                                     ),
+                              ),
+                              ]
                             ),
                           ),
                         ));
