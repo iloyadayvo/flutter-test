@@ -1,8 +1,6 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:namer_app/widget_test.dart';
-
 import 'home_screen.dart';
 
 void main() {
@@ -16,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
      debugShowCheckedModeBanner: false,
      home: const HomeScreen(),
-     theme: ThemeData.light(useMaterial3: true)
+     theme: ThemeData.dark(useMaterial3: true)
     );
  }
 }
