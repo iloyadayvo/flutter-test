@@ -41,26 +41,24 @@ class HomeScreen extends StatelessWidget {
           
            Container(
             height: 40,
-             child: AppBar(
-                   backgroundColor: Colors.white,
-                   title:const Text("Search for Celebrants...",
-                   style: TextStyle(fontWeight: FontWeight.normal,
-                   fontSize:17 ,
-                   color: Colors.black
-                   )
-                   ),
-                  
-                   actions: [
-                     IconButton(
-              tooltip: "Notification",
-              hoverColor: Colors.deepPurple,
-              onPressed: null,
-               icon:const Icon(Icons.search,)
-               )
+             child: TextField(
+                 // controller: ,
+                   decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.search,color: Colors.brown,),
+                  border: OutlineInputBorder(),
+                  hintText: 'Enter a search term',
+                      ),
+                    style:TextStyle(color: Colors.white,
+                    fontWeight: FontWeight.bold,
                     
-                   ],
+                    ),
+                      textAlign: TextAlign.center,
+                          ),
+                    
+                  
+                   
                  ),
-           ),
+           
             
             //welcome party
              SizedBox(height: 20),
@@ -94,7 +92,7 @@ class HomeScreen extends StatelessWidget {
               height: 10,
             ),
            Container(
-            height: 100,
+            height: 110,
              child: ListView.separated(
               scrollDirection: Axis.vertical,
                 itemCount: 6,
@@ -112,6 +110,7 @@ class HomeScreen extends StatelessWidget {
              
               child: FloatingActionButton(
                 onPressed:null,
+                mini: true,
                 
                  backgroundColor: Color.fromARGB(255, 183, 89, 199),
                  tooltip: "Add people",
@@ -120,9 +119,11 @@ class HomeScreen extends StatelessWidget {
             
            ),
             
-            
+            SizedBox(
+              height: 5,
+            ),
            
-               Container(color: Colors.white,
+               Container(
                 padding: EdgeInsets.all(8),
                 width: 1200,
                 height: 36,
